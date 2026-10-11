@@ -35,3 +35,31 @@ Probar("100");
 Probar("");
 Probar("2 & 3");      // debe dar error
 Probar("3 + a");      // debe dar error
+
+
+
+
+static void ProbarPostfix(string expresion)
+{
+    try
+    {
+        var elementos = ExpressionEvaluator.Decompose(expresion);
+        var postfijo = ExpressionEvaluator.ToPostfix(elementos);
+        Console.WriteLine($"{expresion,-15} =>  {string.Join(" ", postfijo)}");
+    }
+    catch (FormatException ex)
+    {
+        Console.WriteLine($"{expresion,-15} =>  ERROR: {ex.Message}");
+    }
+}
+
+ProbarPostfix("3+4*2");
+ProbarPostfix("(3+4)*2");
+ProbarPostfix("2+3*(4-1)");
+ProbarPostfix("(1+2)*3-4");
+ProbarPostfix("10-4-3");
+ProbarPostfix("2^3^2");
+ProbarPostfix("12+3.5");
+ProbarPostfix("7");
+ProbarPostfix("(2+3");     // debe dar error
+ProbarPostfix("2+3)");     // debe dar error

@@ -13,10 +13,13 @@ var infix4 = "144^(1/2)";
 Console.WriteLine($"Infix = {infix4}, Result = {ExpressionEvaluator.Evaluate(infix4):N5}"); // 12
 
 var infix5 = "135.18*74+23";
-Console.WriteLine($"Infix = {infix5}, Result = {ExpressionEvaluator.Evaluate(infix5):N5}"); // 12
+Console.WriteLine($"Infix = {infix5}, Result = {ExpressionEvaluator.Evaluate(infix5):N5}");
+
+var infix6 = "135.18 * 74 + 23";
+Console.WriteLine($"Infix = {infix6}, Result = {ExpressionEvaluator.Evaluate(infix5):N5}");
 
 
-static void Probar(string expresion)
+static void TestDecompose(string expresion)
 {
     try
     {
@@ -29,20 +32,20 @@ static void Probar(string expresion)
     }
 }
 
-Probar("12+3.5");
-Probar("12 + 3 * 2");
-Probar("(10.5-0.5)/4");
-Probar("2^3^2");
-Probar("   7   ");
-Probar("100");
-Probar("");
-Probar("2 & 3");      // debe dar error
-Probar("3 + a");      // debe dar error
+TestDecompose("12+3.5");
+TestDecompose("12 + 3 * 2");
+TestDecompose("(10.5-0.5)/4");
+TestDecompose("2^3^2");
+TestDecompose("   7   ");
+TestDecompose("100");
+TestDecompose("");
+TestDecompose("2 & 3");      
+TestDecompose("3 + a");       
 
 
 
 
-static void ProbarPostfix(string expresion)
+static void TestPostfix(string expresion)
 {
     try
     {
@@ -56,13 +59,13 @@ static void ProbarPostfix(string expresion)
     }
 }
 
-ProbarPostfix("3+4*2");
-ProbarPostfix("(3+4)*2");
-ProbarPostfix("2+3*(4-1)");
-ProbarPostfix("(1+2)*3-4");
-ProbarPostfix("10-4-3");
-ProbarPostfix("2^3^2");
-ProbarPostfix("12+3.5");
-ProbarPostfix("7");
-ProbarPostfix("(2+3");     // debe dar error
-ProbarPostfix("2+3)");     // debe dar error
+TestPostfix("3+4*2");
+TestPostfix("(3+4)*2");
+TestPostfix("2+3*(4-1)");
+TestPostfix("(1+2)*3-4");
+TestPostfix("10-4-3");
+TestPostfix("2^3^2");
+TestPostfix("12+3.5");
+TestPostfix("7");
+TestPostfix("(2+3");     
+TestPostfix("2+3)");     

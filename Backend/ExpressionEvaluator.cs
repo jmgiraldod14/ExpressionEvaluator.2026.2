@@ -9,7 +9,7 @@ public static class ExpressionEvaluator
 {
     public static double Evaluate(string infix) => EvaluatePostfix(ToPostfix(Decompose(infix)));
 
-    public static List<string> Decompose(string infix)
+    public static List<string> Decompose(string infix) // Segmentation of expression
     {
         var parts = new List<string>();
         for (int i = 0; i < infix.Length; i++)
@@ -59,7 +59,7 @@ public static class ExpressionEvaluator
                 if (stack.Count == 0)
                     throw new FormatException("Unbalanced parentheses.");
 
-                stack.Pop(); // descarta '('
+                stack.Pop(); 
             }
             else
             {

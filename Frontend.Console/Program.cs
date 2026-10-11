@@ -12,6 +12,9 @@ Console.WriteLine($"Infix = {infix3}, Result = {ExpressionEvaluator.Evaluate(inf
 var infix4 = "144^(1/2)";
 Console.WriteLine($"Infix = {infix4}, Result = {ExpressionEvaluator.Evaluate(infix4):N5}"); // 12
 
+var infix5 = "135.18*74+23";
+Console.WriteLine($"Infix = {infix5}, Result = {ExpressionEvaluator.Evaluate(infix5):N5}"); // 12
+
 
 static void Probar(string expresion)
 {
